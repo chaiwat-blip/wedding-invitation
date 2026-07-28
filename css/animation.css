@@ -1,0 +1,94 @@
+/* =========================================
+   STEP 2: CINEMATIC OPENING ANIMATIONS
+   ========================================= */
+
+/* 1. ล็อกตำแหน่งซอง เตรียมเปิด */
+.envelope-wrapper.is-opening {
+    animation: none !important; /* หยุดเอฟเฟกต์ลอยไปมา */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* 2. เอฟเฟกต์ Wax แตก สลายตัว และขยายออก */
+.wax-seal.wax-broken {
+    transform: translate(-50%, -50%) scale(1.5) !important;
+    opacity: 0 !important;
+    transition: transform 0.5s ease-in, opacity 0.4s ease-in !important;
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+/* 3. ฝาซองเปิด (3D Flip Up) หมุนพับไปด้านหลัง */
+.env-top-flap.flap-open {
+    transform: rotateX(180deg) !important;
+    z-index: 1 !important; /* ลดเลเยอร์ลงไปอยู่หลังการ์ดเมื่อเปิดเรียบร้อย */
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.3s !important;
+}
+
+/* 4. การ์ดเลื่อนออกจากซองและซูมขยายเข้าหาผู้ใช้งาน */
+.invitation-card-stub.card-pulling {
+    transform: translateY(-180px) scale(1.35) !important;
+    z-index: 10 !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5) !important;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 1s !important;
+}
+
+/* ตัวซองจดหมายค่อยๆ จางและเลื่อนต่ำลง เพื่อส่งต่อความเด่นให้การ์ด */
+.envelope-wrapper.fade-envelope .env-back,
+.envelope-wrapper.fade-envelope .env-pocket-left,
+.envelope-wrapper.fade-envelope .env-pocket-right,
+.envelope-wrapper.fade-envelope .env-pocket-bottom,
+.envelope-wrapper.fade-envelope .env-top-flap {
+    opacity: 0.15 !important;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out !important;
+}
+
+/* =========================================
+   MAIN CONTENT STAGGERED FADE-IN
+   ========================================= */
+.main-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.main-content.cinematic-show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* เอฟเฟกต์การปรากฏของเนื้อหาทีละส่วน เหมือนการเปิดฉากภาพยนตร์ */
+.cinematic-show .invite-header {
+    animation: fadeUpItem 0.8s ease-out 0.2s both;
+}
+
+.cinematic-show .parents-grid {
+    animation: fadeUpItem 0.8s ease-out 0.4s both;
+}
+
+.cinematic-show .couple-section {
+    animation: fadeUpItem 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
+}
+
+.cinematic-show .date-venue-section {
+    animation: fadeUpItem 0.8s ease-out 0.8s both;
+}
+
+.cinematic-show .timeline-section {
+    animation: fadeUpItem 0.8s ease-out 1.0s both;
+}
+
+.cinematic-show .location-section {
+    animation: fadeUpItem 0.8s ease-out 1.2s both;
+}
+
+@keyframes fadeUpItem {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

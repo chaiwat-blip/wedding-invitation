@@ -1,0 +1,258 @@
+/* =========================================
+   CINEMATIC BACKGROUND & LIGHTING
+   ========================================= */
+.cinematic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 30%, #4B5441 0%, #2A2F25 80%);
+    z-index: 1;
+}
+
+.sunlight-beam {
+    position: absolute;
+    top: -20%;
+    left: 20%;
+    width: 60vw;
+    height: 120vh;
+    background: linear-gradient(135deg, rgba(255, 243, 224, 0.08) 0%, rgba(255, 255, 255, 0) 60%);
+    transform: rotate(25deg);
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+.dust-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0),
+        radial-gradient(rgba(255, 230, 200, 0.1) 1px, transparent 0);
+    background-size: 80px 80px, 120px 120px;
+    background-position: 0 0, 40px 40px;
+    animation: floatingDust 30s linear infinite;
+}
+
+@keyframes floatingDust {
+    0% { background-position: 0 0, 40px 40px; }
+    100% { background-position: 80px -80px, 160px -40px; }
+}
+
+/* =========================================
+   GLASS LAYER & SCENE SETUP
+   ========================================= */
+.intro-scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    perspective: 1200px;
+}
+
+.glass-backdrop {
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+/* =========================================
+   PURE HTML/CSS 3D ENVELOPE
+   ========================================= */
+.envelope-wrapper {
+    position: relative;
+    width: 440px;
+    height: 300px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: floatEnvelope 6s ease-in-out infinite;
+}
+
+@keyframes floatEnvelope {
+    0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(0deg); }
+    50% { transform: translateY(-12px) rotateX(8deg) rotateY(-2deg); }
+}
+
+.envelope-wrapper:hover {
+    transform: translateY(-20px) rotateX(10deg) scale(1.02);
+}
+
+.envelope-3d {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 100px rgba(198, 189, 185, 0.1);
+}
+
+.paper-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #C6BDB9;
+    background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 4px 4px;
+}
+
+.env-back {
+    z-index: 1;
+    border-radius: 4px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+}
+
+.invitation-card-stub {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 30px);
+    background: #fcfbf9;
+    z-index: 2;
+    border-radius: 2px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #eaeaea;
+}
+
+.card-preview-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.card-preview-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #4B5441;
+    margin: 0;
+}
+
+.card-preview-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: #A28F7F;
+    margin-top: 5px;
+}
+
+.env-pocket-left {
+    z-index: 3;
+    background: linear-gradient(135deg, #C6BDB9 0%, #A28F7F 100%);
+    clip-path: polygon(0 0, 50% 50%, 0 100%);
+}
+
+.env-pocket-right {
+    z-index: 3;
+    background: linear-gradient(-135deg, #C6BDB9 0%, #A28F7F 100%);
+    clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+}
+
+.env-pocket-bottom {
+    z-index: 4;
+    background: linear-gradient(0deg, #A28F7F 0%, #C6BDB9 100%);
+    clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+    filter: drop-shadow(0 -2px 3px rgba(0,0,0,0.05));
+}
+
+.env-top-flap {
+    z-index: 5;
+    background: linear-gradient(180deg, #C6BDB9 0%, #A28F7F 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 55%);
+    transform-origin: top center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.1s 0.4s;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.wax-seal {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #889e86, #748972 60%, #4B5441 100%);
+    border-radius: 50%;
+    z-index: 6;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.wax-initials {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 1px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
+.click-prompt {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.prompt-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    color: #A28F7F;
+    margin-bottom: 8px;
+    animation: pulseText 2s infinite;
+}
+
+.prompt-line {
+    width: 30px;
+    height: 1px;
+    background: #A28F7F;
+}
+
+@keyframes pulseText {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .envelope-wrapper {
+        width: 320px;
+        height: 220px;
+    }
+    .wax-seal {
+        width: 50px;
+        height: 50px;
+    }
+    .card-preview-names {
+        font-size: 1.8rem;
+    }
+}

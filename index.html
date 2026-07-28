@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wedding of Get & Tom | 22 November 2026</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/intro.css">
-    <link rel="stylesheet" href="css/animation.css">
+    
+    <!-- เชื่อมต่อ CSS (ใส่ ?v=2 เพื่อบังคับล้างแคชเก่า) -->
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/intro.css?v=2">
+    <link rel="stylesheet" href="css/animation.css?v=2">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,42 +25,25 @@
 
     <!-- Step 1: Envelope Scene (Intro) -->
     <section id="intro-scene" class="intro-scene">
-        
-        <!-- Glass Layer Backdrop -->
         <div class="glass-backdrop"></div>
-
-        <!-- 3D Envelope Wrapper -->
         <div class="envelope-wrapper" id="envelope-wrapper">
             <div class="envelope-3d" id="envelope">
-                
-                <!-- 1. ด้านหลังซอง -->
                 <div class="paper-layer env-back"></div>
-
-                <!-- 2. ตัวการ์ดเชิญที่เสียบอยู่ด้านใน (จะถูกดึงออกมาใน Step 2) -->
                 <div class="invitation-card-stub" id="card-stub">
                     <div class="card-preview-text">THE WEDDING OF</div>
                     <h1 class="card-preview-names">Get & Tom</h1>
                     <div class="card-preview-date">22 . 11 . 2026</div>
                 </div>
-
-                <!-- 3. กระเป๋าซองด้านหน้า -->
                 <div class="paper-layer env-pocket-left"></div>
                 <div class="paper-layer env-pocket-right"></div>
                 <div class="paper-layer env-pocket-bottom"></div>
-
-                <!-- 4. ฝาปิดซองด้านบน -->
                 <div class="paper-layer env-top-flap" id="env-flap">
                     <div class="flap-shadow"></div>
                 </div>
-
-                <!-- 5. แสตมป์ขี้ผึ้ง (Wax Seal เปลี่ยนเป็นตัวย่อ G&T) -->
                 <div class="wax-seal" id="wax-seal">
                     <span class="wax-initials">G&T</span>
                 </div>
-
             </div>
-
-            <!-- ข้อความแนะนำให้คลิก -->
             <div class="click-prompt">
                 <span class="prompt-text">CLICK TO OPEN</span>
                 <div class="prompt-line"></div>
@@ -69,8 +54,6 @@
     <!-- ส่วนเนื้อหาการ์ดหลักที่จะแสดงขึ้นมาเมื่อกางการ์ดเสร็จ -->
     <main id="main-content" class="main-content hidden">
         <div class="card-paper-container">
-            
-            <!-- ส่วนปรารภ / ชื่อผู้ใหญ่ -->
             <div class="parents-section">
                 <p class="invite-header">มีความยินดีขอเชิญเพื่อเป็นเกียรติในงานฉลองมงคลสมรส</p>
                 <div class="parents-grid">
@@ -86,8 +69,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- ชื่อบ่าว-สาว -->
             <div class="couple-section">
                 <div class="person bride">
                     <h2 class="name-th">นางสาว ณัฐณิชา รุ่งวิไลเจริญ (เก็ต)</h2>
@@ -99,8 +80,6 @@
                     <h3 class="name-en">Chaiwat Poromsai (Tom)</h3>
                 </div>
             </div>
-
-            <!-- วันและสถานที่ -->
             <div class="date-venue-section">
                 <div class="date-box">
                     <p class="date-th">วันอาทิตย์ที่ 22 พฤศจิกายน 2569</p>
@@ -110,10 +89,7 @@
                     <p class="venue-name">ณ บ้านสวนณิฌาย์ภัทร</p>
                 </div>
             </div>
-
             <hr class="divider">
-
-            <!-- ลำดับพิธีการ -->
             <div class="timeline-section">
                 <h3 class="section-title">ลำดับพิธีการ | SCHEDULE</h3>
                 <div class="timeline-list">
@@ -127,19 +103,16 @@
                     <div class="time-item highlight"><span>12:00 น.</span> <p>เลี้ยงฉลองพิธีมงคลสมรส</p></div>
                 </div>
             </div>
-
-            <!-- แผนที่ Google Maps -->
             <div class="location-section">
                 <a href="https://maps.app.goo.gl/bqciPGAdzDY8Dvpe7" target="_blank" class="btn-maps">
                     <span class="icon">📍</span> เปิดนำทางสถานที่จัดงาน (Google Maps)
                 </a>
             </div>
-
         </div>
     </main>
 
     <!-- JS -->
-    <script src="js/intro.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/intro.js?v=2"></script>
+    <script src="js/main.js?v=2"></script>
 </body>
 </html>
